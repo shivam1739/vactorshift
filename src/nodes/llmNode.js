@@ -7,7 +7,7 @@ export const LLMNode = ({ id, data }) => {
   return (
     <BaseNode
       title="LLM"
-
+      id={data.id}
       handles={[{
         type: "target",
         position: POSITION.LEFT,

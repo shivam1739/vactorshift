@@ -12,6 +12,9 @@ import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
 
 import 'reactflow/dist/style.css';
+import { TimerNode } from './nodes/timerNode';
+import { SelectorNode } from './nodes/selectorNode';
+import { FileLoaderNode } from './nodes/fileLoaderNode';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -20,6 +23,9 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  timer: TimerNode,
+  selector: SelectorNode,
+  filerLoader: FileLoaderNode
 };
 
 const selector = (state) => ({
@@ -53,7 +59,6 @@ export const PipelineUI = () => {
   const onDrop = useCallback(
     (event) => {
       event.preventDefault();
-      console.log("first")
       const reactFlowBounds = reactFlowWrapper.current.getBoundingClientRect();
       if (event?.dataTransfer?.getData('application/reactflow')) {
         const appData = JSON.parse(event.dataTransfer.getData('application/reactflow'));
@@ -87,7 +92,7 @@ export const PipelineUI = () => {
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';
   }, []);
-
+  console.log(nodes)
   return (
     <>
       <div ref={reactFlowWrapper} style={{ width: '100wv', height: '70vh' }}>

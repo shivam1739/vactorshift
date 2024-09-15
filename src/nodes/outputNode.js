@@ -7,7 +7,6 @@ import { POSITION } from '../commonUtils';
 export const OutputNode = ({ id, data }) => {
   const [currName, setCurrName] = useState(data?.outputName || id.replace('customOutput-', 'output_'));
   const [outputType, setOutputType] = useState(data.outputType || 'Text');
-
   const handleNameChange = (e) => {
     setCurrName(e.target.value);
   };
@@ -19,6 +18,7 @@ export const OutputNode = ({ id, data }) => {
   return (
     <BaseNode
       title='Output'
+      id={data.id}
       handles={[{
         id: `${id}-value`,
         type: 'target',

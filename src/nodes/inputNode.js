@@ -25,6 +25,7 @@ export const InputNode = ({ id, data }) => {
     <BaseNode
       title='Input'
       height={100}
+      id={data.id}
       handles={[{
         type: "source",
         position: POSITION.RIGHT,
