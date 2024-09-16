@@ -14,6 +14,8 @@ export const PipelineToolbar = () => {
                 <DraggableNode type='timer' label='Timer' />
                 <DraggableNode type='selector' label='Selector' />
                 <DraggableNode type='filerLoader' label='FilerLoader' />
+                <DraggableNode type='datePicker' label='DatePicker' />
+
             </div>
         </div>
     );

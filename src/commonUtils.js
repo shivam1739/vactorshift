@@ -16,16 +16,16 @@ export const POSITION = {
 
 export const getHandlePosition = (index, total) => {
     const spacing = 100 / (total + 1);
-    console.log(spacing)
     return `${(index + 1) * spacing}%`;
 };
+
 
 export const extractVariables = (text) => {
     const regex = /{{\s*([\w]*)\s*}}/g;
     const variables = [];
     let match;
     while ((match = regex.exec(text)) !== null) {
-        console.log(match[1])
+
         !variables.includes(match[1]) && variables.push(match[1]);
     }
     return variables;

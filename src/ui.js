@@ -15,6 +15,7 @@ import 'reactflow/dist/style.css';
 import { TimerNode } from './nodes/timerNode';
 import { SelectorNode } from './nodes/selectorNode';
 import { FileLoaderNode } from './nodes/fileLoaderNode';
+import { DatePickerNode } from './nodes/datePicketNode';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -25,7 +26,8 @@ const nodeTypes = {
   text: TextNode,
   timer: TimerNode,
   selector: SelectorNode,
-  filerLoader: FileLoaderNode
+  filerLoader: FileLoaderNode,
+  datePicker: DatePickerNode
 };
 
 const selector = (state) => ({
@@ -92,7 +94,7 @@ export const PipelineUI = () => {
     event.preventDefault();
     event.dataTransfer.dropEffect = 'move';
   }, []);
-  console.log(nodes)
+
   return (
     <>
       <div ref={reactFlowWrapper} style={{ width: '100wv', height: '70vh' }}>
@@ -109,6 +111,7 @@ export const PipelineUI = () => {
           proOptions={proOptions}
           snapGrid={[gridSize, gridSize]}
           connectionLineType='smoothstep'
+
         >
           <Background color="#aaa" gap={gridSize} />
           <Controls />
